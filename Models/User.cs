@@ -6,16 +6,10 @@ using System.Threading.Tasks;
 
 namespace FinalADO.Models
 {
-    public class Book
+    public class User
     {
-        public int BookId { get; set; }
-        public string Title { get; set; }
-        public string Author { get; set; }
-        public string Publisher { get; set; }
-        public int Pages { get; set; }
-        public string Genre { get; set; }
-        public int PublicationYear { get; set; }
-        public decimal Cost { get; set; }
-        public decimal SalePrice { get; set; }
+        public int UserId { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
     }
 }
