@@ -1,20 +1,20 @@
 ﻿FinalADO
-1.0.0.0
+
 
 winexe
 C#
 .cs
-C:\Users\Gezal_yv57\Documents\FinalADO\obj\Debug\net8.0-windows\
+C:\Users\Gezal_yv57\Documents\FinalADO\obj\Release\net8.0-windows\
 FinalADO
 none
 false
-TRACE;DEBUG;NET;NET8_0;NETCOREAPP
+TRACE;RELEASE;NET;NET8_0;NETCOREAPP
 C:\Users\Gezal_yv57\Documents\FinalADO\App.xaml
 31380907492
 
-14-350116231
+12-2063738271
 198915248976
 Views\BookWindow.xaml;Views\LoginWindow.xaml;Views\MainWindow.xaml;
 
-False
+True
 
