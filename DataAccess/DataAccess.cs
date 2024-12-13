@@ -98,7 +98,7 @@ namespace FinalADO.DataAccess
                                "Cost=" + book.Cost.ToString().Replace(',', '.') + ", " +
                                "SalePrice=" + book.SalePrice.ToString().Replace(',', '.') + ", " +
                                "IsContinuation=" + (book.IsContinuation ? "1" : "0") + ", " +
-                               "ContinuationOf=" + (book.ContinuationOf.Value.ToString()) +
+                               "ContinuationOf=" + (book.ContinuationOf.HasValue ? book.ContinuationOf.Value.ToString() : "NULL") +
                                " WHERE BookId=" + book.BookId;
 
                 SqlCommand cmd = new SqlCommand(query, conn);
