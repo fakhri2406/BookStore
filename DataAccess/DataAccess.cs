@@ -1,12 +1,19 @@
-﻿using System;
+﻿using FinalADO.Models;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Configuration;
+using System.Data;
+using Microsoft.Data.SqlClient;
 
 namespace FinalADO.DataAccess
 {
-    class DataAccess
+    public class DataAccess
     {
+        private readonly string connectionString;
+
+        public DataAccess()
+        {
+            connectionString = ConfigurationManager.ConnectionStrings["BookStoreDB"].ConnectionString;
+        }
     }
 }

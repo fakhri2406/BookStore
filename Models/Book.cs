@@ -17,5 +17,7 @@ namespace FinalADO.Models
         public int PublicationYear { get; set; }
         public decimal Cost { get; set; }
         public decimal SalePrice { get; set; }
+        public bool IsContinuation { get; set; }
+        public int? ContinuationOf { get; set; }
     }
 }
