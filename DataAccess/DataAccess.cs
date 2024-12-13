@@ -27,5 +27,35 @@ namespace FinalADO.DataAccess
                 return count > 0;
             }
         }
+
+        public List<Book> GetAllBooks()
+        {
+            List<Book> books = new List<Book>();
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "SELECT * FROM Books";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    books.Add(new Book
+                    {
+                        BookId = (int)reader["BookId"],
+                        Title = reader["Title"].ToString(),
+                        Author = reader["Author"].ToString(),
+                        Publisher = reader["Publisher"].ToString(),
+                        Pages = (int)reader["Pages"],
+                        Genre = reader["Genre"].ToString(),
+                        PublicationYear = (int)reader["PublicationYear"],
+                        Cost = (decimal)reader["Cost"],
+                        SalePrice = (decimal)reader["SalePrice"],
+                        IsContinuation = (bool)reader["IsContinuation"],
+                        ContinuationOf = reader["ContinuationOf"] as int?
+                    });
+                }
+            }
+            return books;
+        }
     }
 }
