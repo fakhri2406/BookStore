@@ -57,5 +57,31 @@ namespace FinalADO.DataAccess
             }
             return books;
         }
+
+        public void AddBook(Book book)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "INSERT INTO Books (Title, Author, Publisher, Pages, Genre, PublicationYear, Cost, SalePrice, IsContinuation, ContinuationOf) " +
+                               "VALUES ('" + book.Title + "', '" + book.Author + "', '" + book.Publisher + "', " + book.Pages + ", '" + book.Genre + "', " +
+                               book.PublicationYear + ", " + book.Cost.ToString().Replace(',', '.') + ", " + book.SalePrice.ToString().Replace(',', '.') + ", " +
+                               (book.IsContinuation ? "1" : "0") + ", " + (book.ContinuationOf.HasValue ? book.ContinuationOf.Value.ToString() : "NULL") + ")";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public void DeleteBook(int bookId)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "DELETE FROM Books WHERE BookId=" + bookId;
+                SqlCommand cmd = new SqlCommand(query, conn);
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 }
