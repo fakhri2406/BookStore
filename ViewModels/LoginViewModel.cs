@@ -18,7 +18,8 @@ namespace FinalADO.ViewModels
             get => username;
             set
             {
-                username = value; OnPropertyChanged();
+                username = value;
+                OnPropertyChanged();
             }
         }
 
@@ -27,7 +28,8 @@ namespace FinalADO.ViewModels
             get => password;
             set
             {
-                password = value; OnPropertyChanged();
+                password = value;
+                OnPropertyChanged();
             }
         }
 

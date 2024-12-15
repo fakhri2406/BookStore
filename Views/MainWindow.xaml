@@ -4,24 +4,28 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinalADO.Views"
+        xmlns:viewModels="clr-namespace:FinalADO.ViewModels"
         mc:Ignorable="d"
         Title="Book Store" Height="450" Width="800">
+    <Window.DataContext>
+        <viewModels:BooksViewModel/>
+    </Window.DataContext>
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <DataGrid AutoGenerateColumns="False" Grid.Row="0" Margin="0,0,0,10">
+        <DataGrid ItemsSource="{Binding Books}" SelectedItem="{Binding SelectedBook}" AutoGenerateColumns="False" Grid.Row="0" Margin="0,0,0,10">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Title" Width="*"/>
-                <DataGridTextColumn Header="Author" Width="*"/>
-                <DataGridTextColumn Header="Publisher}" Width="*"/>
-                <DataGridTextColumn Header="Pages" Width="Auto"/>
-                <DataGridTextColumn Header="Genre" Width="*"/>
-                <DataGridTextColumn Header="Year" Width="Auto"/>
-                <DataGridTextColumn Header="Cost" Width="Auto"/>
-                <DataGridTextColumn Header="Price" Width="Auto"/>
-                <DataGridCheckBoxColumn Header="Continuation" Width="Auto"/>
+                <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="*"/>
+                <DataGridTextColumn Header="Author" Binding="{Binding Author}" Width="*"/>
+                <DataGridTextColumn Header="Publisher" Binding="{Binding Publisher}" Width="*"/>
+                <DataGridTextColumn Header="Pages" Binding="{Binding Pages}" Width="Auto"/>
+                <DataGridTextColumn Header="Genre" Binding="{Binding Genre}" Width="*"/>
+                <DataGridTextColumn Header="Year" Binding="{Binding PublicationYear}" Width="Auto"/>
+                <DataGridTextColumn Header="Cost" Binding="{Binding Cost}" Width="Auto"/>
+                <DataGridTextColumn Header="Price" Binding="{Binding SalePrice}" Width="Auto"/>
+                <DataGridCheckBoxColumn Header="Continuation" Binding="{Binding IsContinuation}" Width="Auto"/>
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Right" >

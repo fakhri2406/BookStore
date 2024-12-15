@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FinalADO.ViewModels;
+using FinalADO.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,46 @@ namespace FinalADO.Views
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly BooksViewModel viewModel;
+
         public MainWindow()
         {
             InitializeComponent();
+            viewModel = DataContext as BooksViewModel;
+        }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Are you sure?", "Confirm", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                viewModel.DeleteBook();
+            }
+        }
+
+        private void SellButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Are you sure?", "Confirm", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                viewModel.SellBook();
+            }
+        }
+
+        private void WriteOffButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Are you sure?", "Confirm", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                viewModel.WriteOffBook();
+            }
         }
     }
 }
