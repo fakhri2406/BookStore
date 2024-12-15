@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FinalADO")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fc2d16a9c49976c6c865faef3c556a1a8404a1ab")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0ae43758c662873b9327da68dbfc18b511aa4a0c")]
 [assembly: System.Reflection.AssemblyProductAttribute("FinalADO")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FinalADO")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
