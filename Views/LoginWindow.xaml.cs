@@ -21,6 +21,29 @@ namespace FinalADO.Views
     /// </summary>
     public partial class LoginWindow : Window
     {
+        private readonly LoginViewModel viewModel;
 
+        public LoginWindow()
+        {
+            InitializeComponent();
+            viewModel = new LoginViewModel();
+            this.DataContext = viewModel;
+            viewModel.LoginSuccess += OnLoginSuccess;
+        }
+
+        private void OnLoginSuccess()
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            viewModel.Username = UsernameTextBox.Text;
+            viewModel.Password = PasswordBox.Password;
+
+            viewModel.Login();
+        }
     }
 }

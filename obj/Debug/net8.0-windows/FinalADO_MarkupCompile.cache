@@ -5,15 +5,15 @@ winexe
 C#
 .cs
 C:\Users\Gezal_yv57\Documents\FinalADO\obj\Debug\net8.0-windows\
-FinalADO_zvmbvj5v_wpftmp
+FinalADO
 none
 false
-TRACE;RELEASE;NET;NET8_0;NETCOREAPP
+TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\Gezal_yv57\Documents\FinalADO\App.xaml
 31380907492
 
-161787628738
-3961830497952
+121737485383
+214771650715
 Views\BookWindow.xaml;Views\LoginWindow.xaml;Views\MainWindow.xaml;
 
 False
