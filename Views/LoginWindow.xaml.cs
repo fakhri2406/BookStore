@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FinalADO.ViewModels;
+using FinalADO.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,6 @@ namespace FinalADO.Views
     /// </summary>
     public partial class LoginWindow : Window
     {
-        public LoginWindow()
-        {
-            InitializeComponent();
-        }
+
     }
 }
