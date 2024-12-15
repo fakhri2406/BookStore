@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FinalADO.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,42 @@ namespace FinalADO.Views
     /// </summary>
     public partial class BookWindow : Window
     {
+        public Book Book { get; set; }
+
         public BookWindow()
         {
             InitializeComponent();
+            Book = new Book();
+            this.DataContext = this;
+        }
+
+        public BookWindow(Book book) : this()
+        {
+            Book = new Book
+            {
+                BookId = book.BookId,
+                Title = book.Title,
+                Author = book.Author,
+                Publisher = book.Publisher,
+                Pages = book.Pages,
+                Genre = book.Genre,
+                PublicationYear = book.PublicationYear,
+                Cost = book.Cost,
+                SalePrice = book.SalePrice,
+                IsContinuation = book.IsContinuation,
+                ContinuationOf = book.ContinuationOf
+            };
+            this.DataContext = this;
+        }
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
