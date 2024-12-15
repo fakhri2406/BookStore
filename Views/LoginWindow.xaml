@@ -1,7 +1,10 @@
 ﻿<Window x:Class="FinalADO.Views.LoginWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:local="clr-namespace:FinalADO"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FinalADO.Views"
+        mc:Ignorable="d"
         Title="Login" Height="200" Width="400">
     <Grid Margin="10">
         <Grid.RowDefinitions>
