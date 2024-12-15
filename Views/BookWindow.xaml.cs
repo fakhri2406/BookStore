@@ -50,12 +50,12 @@ namespace FinalADO.Views
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-
+            this.DialogResult = true;
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-
+            this.DialogResult = false;
         }
     }
 }

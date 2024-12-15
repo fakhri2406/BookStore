@@ -31,12 +31,27 @@ namespace FinalADO.Views
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-
+            BookWindow bookWindow = new BookWindow();
+            if (bookWindow.ShowDialog() == true)
+            {
+                viewModel.AddBook(bookWindow.Book);
+            }
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if (viewModel.SelectedBook != null)
+            {
+                BookWindow bookWindow = new BookWindow(viewModel.SelectedBook);
+                if (bookWindow.ShowDialog() == true)
+                {
+                    viewModel.EditBook(bookWindow.Book);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Select a book to edit", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
