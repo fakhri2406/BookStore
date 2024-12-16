@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\Gezal_yv57\Documents\FinalADO\App.xaml
-31380907492
+41970815737
 
-14-350116231
+15-1078178337
 214771650715
-Views\BookWindow.xaml;Views\LoginWindow.xaml;Views\MainWindow.xaml;
+Views\BookWindow.xaml;Views\LoginWindow.xaml;Views\MainWindow.xaml;Views\RegisterWindow.xaml;
 
-False
+True
 

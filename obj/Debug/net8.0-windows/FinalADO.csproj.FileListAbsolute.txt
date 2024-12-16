@@ -61,3 +61,5 @@ C:\Users\Gezal_yv57\Documents\FinalADO\obj\Debug\net8.0-windows\refint\FinalADO.
 C:\Users\Gezal_yv57\Documents\FinalADO\obj\Debug\net8.0-windows\FinalADO.pdb
 C:\Users\Gezal_yv57\Documents\FinalADO\obj\Debug\net8.0-windows\FinalADO.genruntimeconfig.cache
 C:\Users\Gezal_yv57\Documents\FinalADO\obj\Debug\net8.0-windows\ref\FinalADO.dll
+C:\Users\Gezal_yv57\Documents\FinalADO\obj\Debug\net8.0-windows\Views\RegisterWindow.g.cs
+C:\Users\Gezal_yv57\Documents\FinalADO\obj\Debug\net8.0-windows\Views\RegisterWindow.baml

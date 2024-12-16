@@ -45,5 +45,12 @@ namespace FinalADO.Views
 
             viewModel.Login();
         }
+
+        private void RegisterButton_Click(object sender, RoutedEventArgs e)
+        {
+            RegisterWindow registerWindow = new RegisterWindow();
+            registerWindow.Show();
+            this.Close();
+        }
     }
 }

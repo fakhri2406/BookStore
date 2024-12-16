@@ -19,5 +19,8 @@ CREATE TABLE Books (
     FOREIGN KEY (ContinuationOf) REFERENCES Books(BookId)
 );
 
+SELECT * FROM Users;
+SELECT * FROM Books;
+
 DROP TABLE Users;
 DROP TABLE Books;
