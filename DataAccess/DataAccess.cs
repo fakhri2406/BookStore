@@ -106,5 +106,16 @@ namespace FinalADO.DataAccess
                 cmd.ExecuteNonQuery();
             }
         }
+
+        public void AddUser(User user)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "INSERT INTO Users (Username, Password) VALUES (" + user.Username + ", " + user.Password + ")";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 }
