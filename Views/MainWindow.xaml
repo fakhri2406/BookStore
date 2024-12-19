@@ -6,36 +6,77 @@
         xmlns:local="clr-namespace:FinalADO.Views"
         xmlns:viewModels="clr-namespace:FinalADO.ViewModels"
         mc:Ignorable="d"
-        Title="Book Store" Height="450" Width="800">
+        Title="Book Store" Height="450" Width="800" WindowStartupLocation="CenterScreen"
+        WindowStyle="SingleBorderWindow">
+
     <Window.DataContext>
         <viewModels:BooksViewModel/>
     </Window.DataContext>
+
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#FFEEEFF1" Offset="0"/>
+            <GradientStop Color="#FFD6DCE5" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+
+    <Window.Resources>
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#FF2196F3"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="5" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
     <Grid Margin="10">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        
-        <DataGrid ItemsSource="{Binding Books}" SelectedItem="{Binding SelectedBook}" AutoGenerateColumns="False" Grid.Row="0" Margin="0,0,0,10">
+
+        <TextBlock Text="Books" FontSize="24" FontWeight="Bold"
+                   HorizontalAlignment="Center" Margin="0,0,0,20" Grid.Row="0"/>
+
+        <DataGrid ItemsSource="{Binding Books}" SelectedItem="{Binding SelectedBook}" 
+                  AutoGenerateColumns="False" Grid.Row="1" Margin="0,0,0,10"
+                  Background="White" AlternatingRowBackground="#FFF0F0F0" BorderBrush="#FFD2D2D2" BorderThickness="1"
+                  RowHeaderWidth="0" GridLinesVisibility="None">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="*"/>
-                <DataGridTextColumn Header="Author" Binding="{Binding Author}" Width="*"/>
-                <DataGridTextColumn Header="Publisher" Binding="{Binding Publisher}" Width="*"/>
+                <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="*" />
+                <DataGridTextColumn Header="Author" Binding="{Binding Author}" Width="*" />
+                <DataGridTextColumn Header="Publisher" Binding="{Binding Publisher}" Width="*" />
                 <DataGridTextColumn Header="Pages" Binding="{Binding Pages}" Width="Auto"/>
-                <DataGridTextColumn Header="Genre" Binding="{Binding Genre}" Width="*"/>
+                <DataGridTextColumn Header="Genre" Binding="{Binding Genre}" Width="*" />
                 <DataGridTextColumn Header="Year" Binding="{Binding PublicationYear}" Width="Auto"/>
                 <DataGridTextColumn Header="Cost" Binding="{Binding Cost}" Width="Auto"/>
                 <DataGridTextColumn Header="Price" Binding="{Binding SalePrice}" Width="Auto"/>
                 <DataGridCheckBoxColumn Header="Continuation" Binding="{Binding IsContinuation}" Width="Auto"/>
             </DataGrid.Columns>
         </DataGrid>
-        
-        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Right" >
-            <Button Content="Add" Width="100" Margin="5" Click="AddButton_Click"/>
-            <Button Content="Edit" Width="100" Margin="5" Click="EditButton_Click"/>
-            <Button Content="Delete" Width="100" Margin="5" Click="DeleteButton_Click"/>
-            <Button Content="Sell" Width="100" Margin="5" Click="SellButton_Click"/>
-            <Button Content="Write off" Width="100" Margin="5" Click="WriteOffButton_Click"/>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right" >
+            <Button Content="Add" Width="100" Height="25" Margin="5" Click="AddButton_Click"
+                    Background="#FF4CAF50" Style="{StaticResource RoundedButtonStyle}"/>
+            <Button Content="Edit" Width="100" Height="25" Margin="5" Click="EditButton_Click"
+                    Background="#FF2196F3" Style="{StaticResource RoundedButtonStyle}"/>
+            <Button Content="Delete" Width="100" Height="25" Margin="5" Click="DeleteButton_Click"
+                    Background="#FFF44336" Style="{StaticResource RoundedButtonStyle}"/>
+            <Button Content="Sell" Width="100" Height="25" Margin="5" Click="SellButton_Click"
+                    Background="#FF9E9E9E" Style="{StaticResource RoundedButtonStyle}"/>
+            <Button Content="Write off" Width="100" Height="25" Margin="5" Click="WriteOffButton_Click"
+                    Background="#FF9E9E9E" Style="{StaticResource RoundedButtonStyle}"/>
         </StackPanel>
     </Grid>
 </Window>

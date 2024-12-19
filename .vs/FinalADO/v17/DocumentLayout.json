@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\Gezal_yv57\\Documents\\FinalADO\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1C4DF1B9-8043-4454-A161-EA8ABBBF6FB9}|FinalADO.csproj|c:\\users\\gezal_yv57\\documents\\finalado\\bookstore.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
-      "RelativeMoniker": "D:0:0:{1C4DF1B9-8043-4454-A161-EA8ABBBF6FB9}|FinalADO.csproj|solutionrelative:bookstore.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1C4DF1B9-8043-4454-A161-EA8ABBBF6FB9}|FinalADO.csproj|c:\\users\\gezal_yv57\\documents\\finalado\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1C4DF1B9-8043-4454-A161-EA8ABBBF6FB9}|FinalADO.csproj|solutionrelative:assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C4DF1B9-8043-4454-A161-EA8ABBBF6FB9}|FinalADO.csproj|c:\\users\\gezal_yv57\\documents\\finalado\\dataaccess\\dataaccess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C4DF1B9-8043-4454-A161-EA8ABBBF6FB9}|FinalADO.csproj|solutionrelative:dataaccess\\dataaccess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1C4DF1B9-8043-4454-A161-EA8ABBBF6FB9}|FinalADO.csproj|c:\\users\\gezal_yv57\\documents\\finalado\\viewmodels\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1C4DF1B9-8043-4454-A161-EA8ABBBF6FB9}|FinalADO.csproj|solutionrelative:viewmodels\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{1C4DF1B9-8043-4454-A161-EA8ABBBF6FB9}|FinalADO.csproj|c:\\users\\gezal_yv57\\documents\\finalado\\viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1C4DF1B9-8043-4454-A161-EA8ABBBF6FB9}|FinalADO.csproj|solutionrelative:viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1C4DF1B9-8043-4454-A161-EA8ABBBF6FB9}|FinalADO.csproj|c:\\users\\gezal_yv57\\documents\\finalado\\views\\registerwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1C4DF1B9-8043-4454-A161-EA8ABBBF6FB9}|FinalADO.csproj|solutionrelative:views\\registerwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1C4DF1B9-8043-4454-A161-EA8ABBBF6FB9}|FinalADO.csproj|c:\\users\\gezal_yv57\\documents\\finalado\\dataaccess\\dataaccess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1C4DF1B9-8043-4454-A161-EA8ABBBF6FB9}|FinalADO.csproj|solutionrelative:dataaccess\\dataaccess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1C4DF1B9-8043-4454-A161-EA8ABBBF6FB9}|FinalADO.csproj|c:\\users\\gezal_yv57\\documents\\finalado\\bookstore.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}",
+      "RelativeMoniker": "D:0:0:{1C4DF1B9-8043-4454-A161-EA8ABBBF6FB9}|FinalADO.csproj|solutionrelative:bookstore.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1C4DF1B9-8043-4454-A161-EA8ABBBF6FB9}|FinalADO.csproj|c:\\users\\gezal_yv57\\documents\\finalado\\views\\registerwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -29,10 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{1C4DF1B9-8043-4454-A161-EA8ABBBF6FB9}|FinalADO.csproj|c:\\users\\gezal_yv57\\documents\\finalado\\views\\bookwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{1C4DF1B9-8043-4454-A161-EA8ABBBF6FB9}|FinalADO.csproj|solutionrelative:views\\bookwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1C4DF1B9-8043-4454-A161-EA8ABBBF6FB9}|FinalADO.csproj|c:\\users\\gezal_yv57\\documents\\finalado\\viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1C4DF1B9-8043-4454-A161-EA8ABBBF6FB9}|FinalADO.csproj|solutionrelative:viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1C4DF1B9-8043-4454-A161-EA8ABBBF6FB9}|FinalADO.csproj|c:\\users\\gezal_yv57\\documents\\finalado\\views\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -109,7 +109,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
@@ -119,40 +119,40 @@
               "RelativeDocumentMoniker": "ViewModels\\RegisterViewModel.cs",
               "ToolTip": "C:\\Users\\Gezal_yv57\\Documents\\FinalADO\\ViewModels\\RegisterViewModel.cs",
               "RelativeToolTip": "ViewModels\\RegisterViewModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEIAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-16T16:01:48.651Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "RegisterWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Gezal_yv57\\Documents\\FinalADO\\Views\\RegisterWindow.xaml.cs",
               "RelativeDocumentMoniker": "Views\\RegisterWindow.xaml.cs",
               "ToolTip": "C:\\Users\\Gezal_yv57\\Documents\\FinalADO\\Views\\RegisterWindow.xaml.cs",
               "RelativeToolTip": "Views\\RegisterWindow.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAaAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-16T15:36:49.934Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 3,
               "Title": "LoginViewModel.cs",
               "DocumentMoniker": "C:\\Users\\Gezal_yv57\\Documents\\FinalADO\\ViewModels\\LoginViewModel.cs",
               "RelativeDocumentMoniker": "ViewModels\\LoginViewModel.cs",
               "ToolTip": "C:\\Users\\Gezal_yv57\\Documents\\FinalADO\\ViewModels\\LoginViewModel.cs",
               "RelativeToolTip": "ViewModels\\LoginViewModel.cs",
-              "ViewState": "AQIAABkAAAAAAAAAAAA0wDcAAAAAAAAA",
+              "ViewState": "AQIAAB8AAAAAAAAAAAAcwBwAAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-12T16:28:34.008Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "RegisterWindow.xaml",
               "DocumentMoniker": "C:\\Users\\Gezal_yv57\\Documents\\FinalADO\\Views\\RegisterWindow.xaml",
               "RelativeDocumentMoniker": "Views\\RegisterWindow.xaml",
@@ -164,7 +164,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "BookWindow.xaml",
               "DocumentMoniker": "C:\\Users\\Gezal_yv57\\Documents\\FinalADO\\Views\\BookWindow.xaml",
               "RelativeDocumentMoniker": "Views\\BookWindow.xaml",
@@ -188,33 +188,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "DataAccess.cs",
               "DocumentMoniker": "C:\\Users\\Gezal_yv57\\Documents\\FinalADO\\DataAccess\\DataAccess.cs",
               "RelativeDocumentMoniker": "DataAccess\\DataAccess.cs",
               "ToolTip": "C:\\Users\\Gezal_yv57\\Documents\\FinalADO\\DataAccess\\DataAccess.cs",
               "RelativeToolTip": "DataAccess\\DataAccess.cs",
-              "ViewState": "AQIAAFoAAAAAAAAAAAAYwHYAAAAJAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAkAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-12T16:27:24.694Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "AssemblyInfo.cs",
               "DocumentMoniker": "C:\\Users\\Gezal_yv57\\Documents\\FinalADO\\AssemblyInfo.cs",
               "RelativeDocumentMoniker": "AssemblyInfo.cs",
               "ToolTip": "C:\\Users\\Gezal_yv57\\Documents\\FinalADO\\AssemblyInfo.cs",
               "RelativeToolTip": "AssemblyInfo.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-15T09:48:27.66Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "BookStore.sql ",
               "DocumentMoniker": "C:\\Users\\Gezal_yv57\\Documents\\FinalADO\\BookStore.sql",
               "RelativeDocumentMoniker": "BookStore.sql",
