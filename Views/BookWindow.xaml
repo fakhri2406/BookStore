@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinalADO.Views"
         mc:Ignorable="d"
-        Title="Book" Height="750" Width="500" WindowStartupLocation="CenterScreen"
+        Title="Book" Height="800" Width="500" WindowStartupLocation="CenterScreen"
         WindowStyle="SingleBorderWindow">
 
     <Window.Background>
@@ -41,7 +41,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel>
-            <TextBlock Text="Edit Book Details" FontSize="20" FontWeight="Bold" 
+            <TextBlock Text="Book Details" FontSize="20" FontWeight="Bold" 
                HorizontalAlignment="Center" Margin="0,0,0,20"/>
 
             <Label Content="Title:"/>
