@@ -20,8 +20,12 @@ namespace FinalADO.DataAccess
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "SELECT COUNT(1) FROM Users WHERE Username='" + username + "' AND Password='" + password + "'";
+                string query = "SELECT COUNT(1) FROM Users WHERE Username = @Username AND Password = @Password";
                 SqlCommand cmd = new SqlCommand(query, conn);
+
+                cmd.Parameters.AddWithValue("@Username", username);
+                cmd.Parameters.AddWithValue("@Password", password);
+
                 conn.Open();
                 int count = Convert.ToInt32(cmd.ExecuteScalar());
                 return count > 0;
@@ -36,6 +40,7 @@ namespace FinalADO.DataAccess
                 string query = "SELECT * FROM Books";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 conn.Open();
+
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
@@ -55,6 +60,7 @@ namespace FinalADO.DataAccess
                     });
                 }
             }
+
             return books;
         }
 
@@ -62,12 +68,31 @@ namespace FinalADO.DataAccess
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "INSERT INTO Books (Title, Author, Publisher, Pages, Genre, PublicationYear, Cost, SalePrice, IsContinuation, ContinuationOf) " +
-                               "VALUES ('" + book.Title + "', '" + book.Author + "', '" + book.Publisher + "', " + book.Pages + ", '" + book.Genre + "', " +
-                               book.PublicationYear + ", " + book.Cost.ToString().Replace(',', '.') + ", " + book.SalePrice.ToString().Replace(',', '.') + ", " +
-                               (book.IsContinuation ? "1" : "0") + ", " + (book.ContinuationOf.HasValue ? book.ContinuationOf.Value.ToString() : "NULL") + ")";
-
+                string query = @"INSERT INTO Books 
+                                 (Title, Author, Publisher, Pages, Genre, PublicationYear, Cost, SalePrice, IsContinuation, ContinuationOf) 
+                                 VALUES 
+                                 (@Title, @Author, @Publisher, @Pages, @Genre, @PublicationYear, @Cost, @SalePrice, @IsContinuation, @ContinuationOf)";
                 SqlCommand cmd = new SqlCommand(query, conn);
+
+                cmd.Parameters.AddWithValue("@Title", book.Title);
+                cmd.Parameters.AddWithValue("@Author", book.Author);
+                cmd.Parameters.AddWithValue("@Publisher", book.Publisher);
+                cmd.Parameters.AddWithValue("@Pages", book.Pages);
+                cmd.Parameters.AddWithValue("@Genre", book.Genre);
+                cmd.Parameters.AddWithValue("@PublicationYear", book.PublicationYear);
+                cmd.Parameters.AddWithValue("@Cost", book.Cost);
+                cmd.Parameters.AddWithValue("@SalePrice", book.SalePrice);
+                cmd.Parameters.AddWithValue("@IsContinuation", book.IsContinuation);
+
+                if (book.ContinuationOf.HasValue)
+                {
+                    cmd.Parameters.AddWithValue("@ContinuationOf", book.ContinuationOf.Value);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@ContinuationOf", DBNull.Value);
+                }
+
                 conn.Open();
                 cmd.ExecuteNonQuery();
             }
@@ -77,8 +102,11 @@ namespace FinalADO.DataAccess
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "DELETE FROM Books WHERE BookId=" + bookId;
+                string query = "DELETE FROM Books WHERE BookId = @BookId";
                 SqlCommand cmd = new SqlCommand(query, conn);
+
+                cmd.Parameters.AddWithValue("@BookId", bookId);
+
                 conn.Open();
                 cmd.ExecuteNonQuery();
             }
@@ -88,20 +116,40 @@ namespace FinalADO.DataAccess
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "UPDATE Books SET " +
-                               "Title='" + book.Title + "', " +
-                               "Author='" + book.Author + "', " +
-                               "Publisher='" + book.Publisher + "', " +
-                               "Pages=" + book.Pages + ", " +
-                               "Genre='" + book.Genre + "', " +
-                               "PublicationYear=" + book.PublicationYear + ", " +
-                               "Cost=" + book.Cost.ToString().Replace(',', '.') + ", " +
-                               "SalePrice=" + book.SalePrice.ToString().Replace(',', '.') + ", " +
-                               "IsContinuation=" + (book.IsContinuation ? "1" : "0") + ", " +
-                               "ContinuationOf=" + (book.ContinuationOf.HasValue ? book.ContinuationOf.Value.ToString() : "NULL") +
-                               " WHERE BookId=" + book.BookId;
-
+                string query = @"UPDATE Books SET 
+                                 Title = @Title,
+                                 Author = @Author,
+                                 Publisher = @Publisher,
+                                 Pages = @Pages,
+                                 Genre = @Genre,
+                                 PublicationYear = @PublicationYear,
+                                 Cost = @Cost,
+                                 SalePrice = @SalePrice,
+                                 IsContinuation = @IsContinuation,
+                                 ContinuationOf = @ContinuationOf
+                                 WHERE BookId = @BookId";
                 SqlCommand cmd = new SqlCommand(query, conn);
+
+                cmd.Parameters.AddWithValue("@Title", book.Title);
+                cmd.Parameters.AddWithValue("@Author", book.Author);
+                cmd.Parameters.AddWithValue("@Publisher", book.Publisher);
+                cmd.Parameters.AddWithValue("@Pages", book.Pages);
+                cmd.Parameters.AddWithValue("@Genre", book.Genre);
+                cmd.Parameters.AddWithValue("@PublicationYear", book.PublicationYear);
+                cmd.Parameters.AddWithValue("@Cost", book.Cost);
+                cmd.Parameters.AddWithValue("@SalePrice", book.SalePrice);
+                cmd.Parameters.AddWithValue("@IsContinuation", book.IsContinuation);
+                cmd.Parameters.AddWithValue("@BookId", book.BookId);
+
+                if (book.ContinuationOf.HasValue)
+                {
+                    cmd.Parameters.AddWithValue("@ContinuationOf", book.ContinuationOf.Value);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@ContinuationOf", DBNull.Value);
+                }
+
                 conn.Open();
                 cmd.ExecuteNonQuery();
             }
@@ -111,8 +159,12 @@ namespace FinalADO.DataAccess
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "INSERT INTO Users (Username, Password) VALUES ('" + user.Username + "', '" + user.Password + "')";
+                string query = "INSERT INTO Users (Username, Password) VALUES (@Username, @Password)";
                 SqlCommand cmd = new SqlCommand(query, conn);
+
+                cmd.Parameters.AddWithValue("@Username", user.Username);
+                cmd.Parameters.AddWithValue("@Password", user.Password);
+
                 conn.Open();
                 cmd.ExecuteNonQuery();
             }
