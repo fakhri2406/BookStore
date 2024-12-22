@@ -46,6 +46,12 @@ namespace FinalADO.ViewModels
                 return;
             }
 
+            if (Password.Length < 8)
+            {
+                MessageBox.Show("Password should be at least 8 symbols long", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             try
             {
                 var newUser = new User
@@ -59,7 +65,7 @@ namespace FinalADO.ViewModels
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

@@ -50,6 +50,24 @@ namespace FinalADO.Views
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
+            if (!Book.Author.All(char.IsLetter))
+            {
+                MessageBox.Show("Author name should consist of letters only", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (!Book.Genre.All(char.IsLetter))
+            {
+                MessageBox.Show("Genre should consist of letters only", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (Book.Pages <= 0)
+            {
+                MessageBox.Show("Page count should be greater than 0", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             this.DialogResult = true;
         }
 
