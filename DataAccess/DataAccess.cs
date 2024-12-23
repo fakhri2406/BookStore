@@ -41,23 +41,26 @@ namespace FinalADO.DataAccess
                 SqlCommand cmd = new SqlCommand(query, conn);
                 conn.Open();
 
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
+                using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    books.Add(new Book
+                    while (reader.Read())
                     {
-                        BookId = (int)reader["BookId"],
-                        Title = reader["Title"].ToString(),
-                        Author = reader["Author"].ToString(),
-                        Publisher = reader["Publisher"].ToString(),
-                        Pages = (int)reader["Pages"],
-                        Genre = reader["Genre"].ToString(),
-                        PublicationYear = (int)reader["PublicationYear"],
-                        Cost = (decimal)reader["Cost"],
-                        SalePrice = (decimal)reader["SalePrice"],
-                        IsContinuation = (bool)reader["IsContinuation"],
-                        ContinuationOf = reader["ContinuationOf"] as int?
-                    });
+                        books.Add(new Book
+                        {
+                            BookId = (int)reader["BookId"],
+                            Title = reader["Title"].ToString(),
+                            Author = reader["Author"].ToString(),
+                            Publisher = reader["Publisher"].ToString(),
+                            Pages = (int)reader["Pages"],
+                            Genre = reader["Genre"].ToString(),
+                            PublicationYear = (int)reader["PublicationYear"],
+                            Cost = (decimal)reader["Cost"],
+                            SalePrice = (decimal)reader["SalePrice"],
+                            IsContinuation = (bool)reader["IsContinuation"],
+                            ContinuationOf = reader["ContinuationOf"] as int?,
+                            SalesCount = (int)reader["SalesCount"]
+                        });
+                    }
                 }
             }
 
@@ -69,9 +72,9 @@ namespace FinalADO.DataAccess
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 string query = @"INSERT INTO Books 
-                                 (Title, Author, Publisher, Pages, Genre, PublicationYear, Cost, SalePrice, IsContinuation, ContinuationOf) 
+                                 (Title, Author, Publisher, Pages, Genre, PublicationYear, Cost, SalePrice, IsContinuation, ContinuationOf, SalesCount) 
                                  VALUES 
-                                 (@Title, @Author, @Publisher, @Pages, @Genre, @PublicationYear, @Cost, @SalePrice, @IsContinuation, @ContinuationOf)";
+                                 (@Title, @Author, @Publisher, @Pages, @Genre, @PublicationYear, @Cost, @SalePrice, @IsContinuation, @ContinuationOf, @SalesCount)";
                 SqlCommand cmd = new SqlCommand(query, conn);
 
                 cmd.Parameters.AddWithValue("@Title", book.Title);
@@ -92,6 +95,8 @@ namespace FinalADO.DataAccess
                 {
                     cmd.Parameters.AddWithValue("@ContinuationOf", DBNull.Value);
                 }
+
+                cmd.Parameters.AddWithValue("@SalesCount", 0);
 
                 conn.Open();
                 cmd.ExecuteNonQuery();
@@ -164,6 +169,20 @@ namespace FinalADO.DataAccess
 
                 cmd.Parameters.AddWithValue("@Username", user.Username);
                 cmd.Parameters.AddWithValue("@Password", user.Password);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public void SellBook(int bookId)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "UPDATE Books SET SalesCount = SalesCount + 1 WHERE BookId = @BookId";
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                cmd.Parameters.AddWithValue("@BookId", bookId);
 
                 conn.Open();
                 cmd.ExecuteNonQuery();

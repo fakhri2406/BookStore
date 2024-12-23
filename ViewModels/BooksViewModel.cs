@@ -75,7 +75,7 @@ namespace FinalADO.ViewModels
         {
             if (SelectedBook != null)
             {
-                dataAccess.DeleteBook(SelectedBook.BookId);
+                dataAccess.SellBook(SelectedBook.BookId);
                 LoadBooks();
             }
             else

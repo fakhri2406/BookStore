@@ -63,6 +63,7 @@
                 <DataGridTextColumn Header="Cost" Binding="{Binding Cost}" Width="Auto"/>
                 <DataGridTextColumn Header="Price" Binding="{Binding SalePrice}" Width="Auto"/>
                 <DataGridCheckBoxColumn Header="Continuation" Binding="{Binding IsContinuation}" Width="Auto"/>
+                <DataGridTextColumn Header="Sales Count" Binding="{Binding SalesCount}" Width="Auto"/>
             </DataGrid.Columns>
         </DataGrid>
 

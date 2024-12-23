@@ -19,6 +19,9 @@ CREATE TABLE Books (
     FOREIGN KEY (ContinuationOf) REFERENCES Books(BookId)
 );
 
+ALTER TABLE Books
+ADD SalesCount INT NOT NULL DEFAULT 0;
+
 SELECT * FROM Users;
 SELECT * FROM Books;
 

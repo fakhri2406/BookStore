@@ -64,9 +64,13 @@ namespace FinalADO.Views
 
         private void SellButton_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Are you sure?", "Confirm", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            if (viewModel.SelectedBook != null)
             {
                 viewModel.SellBook();
+            }
+            else
+            {
+                MessageBox.Show("Select a book to sell", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 

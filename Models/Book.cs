@@ -19,5 +19,6 @@ namespace FinalADO.Models
         public decimal SalePrice { get; set; }
         public bool IsContinuation { get; set; }
         public int? ContinuationOf { get; set; }
+        public int SalesCount { get; set; }
     }
 }
