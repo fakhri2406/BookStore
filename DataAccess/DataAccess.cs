@@ -188,5 +188,55 @@ namespace FinalADO.DataAccess
                 cmd.ExecuteNonQuery();
             }
         }
+
+        public void AddPurchase(int userId, int bookId)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "INSERT INTO Purchases (UserId, BookId) VALUES (@UserId, @BookId)";
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                cmd.Parameters.AddWithValue("@UserId", userId);
+                cmd.Parameters.AddWithValue("@BookId", bookId);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public List<Purchase> GetPurchasesByUser(int userId)
+        {
+            List<Purchase> purchases = new List<Purchase>();
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = @"SELECT p.PurchaseId, p.UserId, p.BookId, p.PurchaseDate, 
+                                b.Title AS BookTitle, b.SalePrice
+                                FROM Purchases p
+                                INNER JOIN Books b ON p.BookId = b.BookId
+                                WHERE p.UserId = @UserId
+                                ORDER BY p.PurchaseDate DESC";
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                cmd.Parameters.AddWithValue("@UserId", userId);
+                conn.Open();
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        purchases.Add(new Purchase
+                        {
+                            PurchaseId = (int)reader["PurchaseId"],
+                            UserId = (int)reader["UserId"],
+                            BookId = (int)reader["BookId"],
+                            PurchaseDate = (DateTime)reader["PurchaseDate"]
+                        });
+                    }
+                }
+            }
+
+            return purchases;
+        }
     }
 }
