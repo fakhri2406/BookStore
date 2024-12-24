@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using FinalADO.DataAccess;
+using FinalADO.Models;
+using System;
 
 namespace FinalADO.ViewModels
 {
@@ -33,7 +30,7 @@ namespace FinalADO.ViewModels
             }
         }
 
-        public event Action? LoginSuccess;
+        public event Action<User>? LoginSuccess;
 
         public LoginViewModel()
         {
@@ -42,13 +39,14 @@ namespace FinalADO.ViewModels
 
         public void Login()
         {
-            if (dataAccess.ValidateUser(Username, Password))
+            User? user = dataAccess.ValidateUser(Username, Password);
+            if (user != null)
             {
-                LoginSuccess?.Invoke();
+                LoginSuccess?.Invoke(user);
             }
             else
             {
-                MessageBox.Show("Incorrect username or password", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                System.Windows.MessageBox.Show("Incorrect username or password", "Error", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
             }
         }
     }
