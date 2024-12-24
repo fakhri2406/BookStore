@@ -244,7 +244,9 @@ namespace FinalADO.DataAccess
                             PurchaseId = (int)reader["PurchaseId"],
                             UserId = (int)reader["UserId"],
                             BookId = (int)reader["BookId"],
-                            PurchaseDate = (DateTime)reader["PurchaseDate"]
+                            PurchaseDate = (DateTime)reader["PurchaseDate"],
+                            BookTitle = reader["BookTitle"].ToString(),
+                            SalePrice = (decimal)reader["SalePrice"]
                         });
                     }
                 }

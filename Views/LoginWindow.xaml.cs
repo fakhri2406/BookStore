@@ -31,10 +31,18 @@ namespace FinalADO.Views
             viewModel.LoginSuccess += OnLoginSuccess;
         }
 
-        private void OnLoginSuccess()
+        private void OnLoginSuccess(Models.User user)
         {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
+            if (user.Username == "admin")
+            {
+                AdminWindow adminWindow = new AdminWindow();
+                adminWindow.Show();
+            }
+            else
+            {
+                UserWindow userWindow = new UserWindow(user);
+                userWindow.Show();
+            }
             this.Close();
         }
 

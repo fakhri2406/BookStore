@@ -1,5 +1,4 @@
 ﻿using FinalADO.ViewModels;
-using FinalADO.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,16 +16,17 @@ using System.Windows.Shapes;
 namespace FinalADO.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for AdminWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AdminWindow : Window
     {
-        private readonly BooksViewModel viewModel;
+        private readonly AdminViewModel viewModel;
 
-        public MainWindow()
+        public AdminWindow()
         {
             InitializeComponent();
-            viewModel = DataContext as BooksViewModel;
+            viewModel = new AdminViewModel();
+            this.DataContext = viewModel;
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
@@ -56,27 +56,15 @@ namespace FinalADO.Views
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Are you sure?", "Confirm", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            if (MessageBox.Show("Are you sure you want to delete this book?", "Confirm", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 viewModel.DeleteBook();
             }
         }
 
-        private void SellButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (viewModel.SelectedBook != null)
-            {
-                viewModel.SellBook();
-            }
-            else
-            {
-                MessageBox.Show("Select a book to sell", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-        }
-
         private void WriteOffButton_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Are you sure?", "Confirm", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            if (MessageBox.Show("Are you sure you want to write off this book?", "Confirm", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 viewModel.WriteOffBook();
             }

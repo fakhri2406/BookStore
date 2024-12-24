@@ -1,15 +1,10 @@
 ﻿using FinalADO.Models;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace FinalADO.ViewModels
 {
-    public class BooksViewModel : BaseViewModel
+    public class AdminViewModel : BaseViewModel
     {
         private readonly DataAccess.DataAccess dataAccess;
 
@@ -35,7 +30,7 @@ namespace FinalADO.ViewModels
             }
         }
 
-        public BooksViewModel()
+        public AdminViewModel()
         {
             dataAccess = new DataAccess.DataAccess();
             LoadBooks();
@@ -68,19 +63,6 @@ namespace FinalADO.ViewModels
             else
             {
                 MessageBox.Show("Select a book to delete", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-        }
-
-        public void SellBook()
-        {
-            if (SelectedBook != null)
-            {
-                dataAccess.SellBook(SelectedBook.BookId);
-                LoadBooks();
-            }
-            else
-            {
-                MessageBox.Show("Select a book to sell", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 

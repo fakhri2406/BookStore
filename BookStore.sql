@@ -29,6 +29,8 @@ CREATE TABLE Purchases (
     FOREIGN KEY (BookId) REFERENCES Books(BookId)
 );
 
+INSERT INTO Users (Username, Password) VALUES ('admin', 'admin');
+
 SELECT * FROM Users;
 SELECT * FROM Books;
 SELECT * FROM Purchases;
