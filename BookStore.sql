@@ -16,14 +16,23 @@ CREATE TABLE Books (
     SalePrice DECIMAL(10, 2) NOT NULL,
     IsContinuation BIT NOT NULL,
     ContinuationOf INT NULL,
+    SalesCount INT NOT NULL DEFAULT 0,
     FOREIGN KEY (ContinuationOf) REFERENCES Books(BookId)
 );
 
-ALTER TABLE Books
-ADD SalesCount INT NOT NULL DEFAULT 0;
+CREATE TABLE Purchases (
+    PurchaseId INT PRIMARY KEY IDENTITY,
+    UserId INT NOT NULL,
+    BookId INT NOT NULL,
+    PurchaseDate DATETIME NOT NULL DEFAULT GETDATE(),
+    FOREIGN KEY (UserId) REFERENCES Users(UserId),
+    FOREIGN KEY (BookId) REFERENCES Books(BookId)
+);
 
 SELECT * FROM Users;
 SELECT * FROM Books;
+SELECT * FROM Purchases;
 
 DROP TABLE Users;
 DROP TABLE Books;
+DROP TABLE Purchases;
