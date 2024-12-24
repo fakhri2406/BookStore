@@ -16,19 +16,33 @@ namespace FinalADO.DataAccess
             connectionString = ConfigurationManager.ConnectionStrings["BookStoreDB"].ConnectionString;
         }
 
-        public bool ValidateUser(string username, string password)
+        public User? ValidateUser(string username, string password)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "SELECT COUNT(1) FROM Users WHERE Username = @Username AND Password = @Password";
+                string query = "SELECT * FROM Users WHERE Username = @Username AND Password = @Password";
                 SqlCommand cmd = new SqlCommand(query, conn);
 
                 cmd.Parameters.AddWithValue("@Username", username);
                 cmd.Parameters.AddWithValue("@Password", password);
 
                 conn.Open();
-                int count = Convert.ToInt32(cmd.ExecuteScalar());
-                return count > 0;
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return new User
+                        {
+                            UserId = (int)reader["UserId"],
+                            Username = reader["Username"].ToString(),
+                            Password = reader["Password"].ToString()
+                        };
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
             }
         }
 
