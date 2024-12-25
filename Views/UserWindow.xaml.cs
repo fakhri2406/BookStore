@@ -37,5 +37,17 @@ namespace FinalADO.Views
             loginWindow.Show();
             this.Close();
         }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            string query = SearchTextBox.Text.Trim();
+            viewModel.SearchBooks(query);
+        }
+
+        private void ClearSearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            SearchTextBox.Text = string.Empty;
+            viewModel.ClearSearch();
+        }
     }
 }

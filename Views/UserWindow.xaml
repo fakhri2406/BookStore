@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModels="clr-namespace:FinalADO.ViewModels"
         mc:Ignorable="d"
-        Title="Book Store" Height="450" Width="800" WindowStartupLocation="CenterScreen"
+        Title="Book Store" Height="500" Width="900" WindowStartupLocation="CenterScreen"
         WindowStyle="SingleBorderWindow">
 
     <Window.Background>
@@ -37,15 +37,25 @@
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <TextBlock Text="Available Books" FontSize="24" FontWeight="Bold"
-                   HorizontalAlignment="Center" Margin="0,0,0,20" Grid.Row="0"/>
+                   HorizontalAlignment="Center" Margin="0,0,0,10" Grid.Row="0"/>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0,0,0,10" HorizontalAlignment="Left">
+            <Label Content="Search:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+            <TextBox Width="250" x:Name="SearchTextBox" VerticalAlignment="Center" Padding="5"/>
+            <Button Content="Search" Width="100" Height="25" Margin="5,0,0,0" Click="SearchButton_Click"
+                    Background="#FF4CAF50" Style="{StaticResource RoundedButtonStyle}"/>
+            <Button Content="Clear" Width="100" Height="25" Margin="5,0,0,0" Click="ClearSearchButton_Click"
+                    Background="#FF9E9E9E" Style="{StaticResource RoundedButtonStyle}"/>
+        </StackPanel>
 
         <DataGrid ItemsSource="{Binding Books}" SelectedItem="{Binding SelectedBook}" 
-                  AutoGenerateColumns="False" Grid.Row="1" Margin="0,0,0,10"
+                  AutoGenerateColumns="False" Grid.Row="2" Margin="0,0,0,10"
                   Background="White" AlternatingRowBackground="#FFF0F0F0" BorderBrush="#FFD2D2D2" BorderThickness="1"
                   RowHeaderWidth="0" GridLinesVisibility="None">
             <DataGrid.Columns>
@@ -60,7 +70,7 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right">
+        <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Right">
             <Button Content="Purchase" Width="100" Height="25" Margin="5" Click="PurchaseButton_Click"
                     Background="#FF4CAF50" Style="{StaticResource RoundedButtonStyle}"/>
             <Button Content="Purchase History" Width="150" Height="25" Margin="5" Click="PurchaseHistoryButton_Click"

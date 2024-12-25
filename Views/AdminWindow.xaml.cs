@@ -56,9 +56,16 @@ namespace FinalADO.Views
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to delete this book?", "Confirm", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            if (viewModel.SelectedBook != null)
             {
-                viewModel.DeleteBook();
+                if (MessageBox.Show("Are you sure you want to delete this book?", "Confirm", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                {
+                    viewModel.DeleteBook();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Select a book to delete", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
@@ -67,6 +74,18 @@ namespace FinalADO.Views
             LoginWindow loginWindow = new LoginWindow();
             loginWindow.Show();
             this.Close();
+        }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            string query = SearchTextBox.Text.Trim();
+            viewModel.SearchBooks(query);
+        }
+
+        private void ClearSearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            SearchTextBox.Text = string.Empty;
+            viewModel.ClearSearch();
         }
     }
 }

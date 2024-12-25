@@ -20,6 +20,8 @@ namespace FinalADO.ViewModels
             }
         }
 
+        private ObservableCollection<Book> allBooks;
+
         private Book selectedBook;
         public Book SelectedBook
         {
@@ -40,7 +42,9 @@ namespace FinalADO.ViewModels
 
         public void LoadBooks()
         {
-            Books = new ObservableCollection<Book>(dataAccess.GetAllBooks());
+            var bookList = dataAccess.GetAllBooks();
+            Books = new ObservableCollection<Book>(bookList);
+            allBooks = new ObservableCollection<Book>(bookList);
         }
 
         public void PurchaseBook()
@@ -55,6 +59,29 @@ namespace FinalADO.ViewModels
             {
                 MessageBox.Show("Select a book to purchase", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
             }
+        }
+
+        public void SearchBooks(string query)
+        {
+            if (string.IsNullOrEmpty(query))
+            {
+                Books = new ObservableCollection<Book>(allBooks);
+                return;
+            }
+
+            var filtered = allBooks.Where(b =>
+                b.Title.ToLower() == query.ToLower() ||
+                b.Author.ToLower() == query.ToLower() ||
+                b.Genre.ToLower() == query.ToLower() ||
+                b.Publisher.ToLower() == query.ToLower()
+            );
+
+            Books = new ObservableCollection<Book>(filtered);
+        }
+
+        public void ClearSearch()
+        {
+            Books = new ObservableCollection<Book>(allBooks);
         }
     }
 }
