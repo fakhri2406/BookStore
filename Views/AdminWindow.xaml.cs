@@ -62,12 +62,11 @@ namespace FinalADO.Views
             }
         }
 
-        private void WriteOffButton_Click(object sender, RoutedEventArgs e)
+        private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to write off this book?", "Confirm", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-            {
-                viewModel.WriteOffBook();
-            }
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
+            this.Close();
         }
     }
 }

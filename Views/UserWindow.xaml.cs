@@ -30,5 +30,12 @@ namespace FinalADO.Views
             PurchaseHistoryWindow historyWindow = new PurchaseHistoryWindow(currentUser);
             historyWindow.Show();
         }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
+            this.Close();
+        }
     }
 }

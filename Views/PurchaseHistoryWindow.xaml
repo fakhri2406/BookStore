@@ -15,10 +15,30 @@
         </LinearGradientBrush>
     </Window.Background>
 
+    <Window.Resources>
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#FF2196F3"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="5" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <TextBlock Text="Purchase History" FontSize="24" FontWeight="Bold"
@@ -34,5 +54,10 @@
                 <DataGridTextColumn Header="Purchase Date" Binding="{Binding PurchaseDate}" Width="Auto"/>
             </DataGrid.Columns>
         </DataGrid>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right">
+            <Button Content="Back" Width="100" Height="25" Margin="5" Click="BackButton_Click"
+                    Background="#FF9E9E9E" Style="{StaticResource RoundedButtonStyle}"/>
+        </StackPanel>
     </Grid>
 </Window>

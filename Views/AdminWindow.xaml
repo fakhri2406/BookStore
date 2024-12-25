@@ -73,7 +73,7 @@
                     Background="#FF2196F3" Style="{StaticResource RoundedButtonStyle}"/>
             <Button Content="Delete" Width="100" Height="25" Margin="5" Click="DeleteButton_Click"
                     Background="#FFF44336" Style="{StaticResource RoundedButtonStyle}"/>
-            <Button Content="Write Off" Width="100" Height="25" Margin="5" Click="WriteOffButton_Click"
+            <Button Content="Back" Width="100" Height="25" Margin="5" Click="BackButton_Click"
                     Background="#FF9E9E9E" Style="{StaticResource RoundedButtonStyle}"/>
         </StackPanel>
     </Grid>

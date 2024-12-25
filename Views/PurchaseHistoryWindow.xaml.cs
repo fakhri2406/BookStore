@@ -22,12 +22,19 @@ namespace FinalADO.Views
     public partial class PurchaseHistoryWindow : Window
     {
         private readonly PurchaseHistoryViewModel viewModel;
+        private readonly User currentUser;
 
         public PurchaseHistoryWindow(User user)
         {
             InitializeComponent();
+            currentUser = user;
             viewModel = new PurchaseHistoryViewModel(user.UserId);
             this.DataContext = viewModel;
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
