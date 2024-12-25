@@ -206,11 +206,5 @@ User interface components built with XAML.
 
 ---
 
-## Future Improvements
-1. Implement password hashing for user credentials.
-2. Enhance the UI with animations and responsive design.
-
----
-
 ## License
 This project is open-source and available under the MIT License.

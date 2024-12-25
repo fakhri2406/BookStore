@@ -9,7 +9,62 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="App_log.ldf" />
+    <None Remove="Fonts\SFUIText-Bold.ttf" />
+    <None Remove="Fonts\SFUIText-BoldItalic.ttf" />
+    <None Remove="Fonts\SFUIText-Heavy.ttf" />
+    <None Remove="Fonts\SFUIText-HeavyItalic.ttf" />
+    <None Remove="Fonts\SFUIText-Light.ttf" />
+    <None Remove="Fonts\SFUIText-LightItalic.ttf" />
+    <None Remove="Fonts\SFUIText-Medium.ttf" />
+    <None Remove="Fonts\SFUIText-MediumItalic.ttf" />
+    <None Remove="Fonts\SFUIText-Regular.ttf" />
+    <None Remove="Fonts\SFUIText-RegularItalic.ttf" />
+    <None Remove="Fonts\SFUIText-Semibold.ttf" />
+    <None Remove="Fonts\SFUIText-SemiboldItalic.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\SFUIText-Bold.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\SFUIText-BoldItalic.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\SFUIText-Heavy.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\SFUIText-HeavyItalic.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\SFUIText-Light.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\SFUIText-LightItalic.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\SFUIText-Medium.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\SFUIText-MediumItalic.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\SFUIText-Regular.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\SFUIText-RegularItalic.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\SFUIText-Semibold.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\SFUIText-SemiboldItalic.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

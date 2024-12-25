@@ -5,36 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModels="clr-namespace:FinalADO.ViewModels"
         mc:Ignorable="d"
-        Title="Book Store" Height="500" Width="900" WindowStartupLocation="CenterScreen"
-        WindowStyle="SingleBorderWindow">
-
-    <Window.Background>
-        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-            <GradientStop Color="#FFEEEFF1" Offset="0"/>
-            <GradientStop Color="#FFD6DCE5" Offset="1"/>
-        </LinearGradientBrush>
-    </Window.Background>
-
-    <Window.Resources>
-        <Style x:Key="RoundedButtonStyle" TargetType="Button">
-            <Setter Property="Background" Value="#FF2196F3"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Padding" Value="5"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border CornerRadius="5" Background="{TemplateBinding Background}">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>
-
-    <Grid Margin="10">
+        Title="Book Store" WindowStartupLocation="CenterScreen">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -42,41 +14,40 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Available Books" FontSize="24" FontWeight="Bold"
-                   HorizontalAlignment="Center" Margin="0,0,0,10" Grid.Row="0"/>
+        <TextBlock Text="Available Books" FontSize="28" FontWeight="Bold" 
+                   HorizontalAlignment="Center" Margin="0,50,0,30" Grid.Row="0"/>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0,0,0,10" HorizontalAlignment="Left">
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0,0,0,10" HorizontalAlignment="Center">
             <Label Content="Search:" VerticalAlignment="Center" Margin="0,0,5,0"/>
-            <TextBox Width="250" x:Name="SearchTextBox" VerticalAlignment="Center" Padding="5"/>
-            <Button Content="Search" Width="100" Height="25" Margin="5,0,0,0" Click="SearchButton_Click"
-                    Background="#FF4CAF50" Style="{StaticResource RoundedButtonStyle}"/>
-            <Button Content="Clear" Width="100" Height="25" Margin="5,0,0,0" Click="ClearSearchButton_Click"
-                    Background="#FF9E9E9E" Style="{StaticResource RoundedButtonStyle}"/>
+            <TextBox Width="250" x:Name="SearchTextBox" VerticalAlignment="Center"/>
+            <Button Content="Search" Width="100" Height="40" Margin="5,0,0,0" Click="SearchButton_Click" 
+                    Background="#4CAF50"/>
+            <Button Content="Clear" Width="100" Height="40" Margin="5,0,0,0" Click="ClearSearchButton_Click" 
+                    Background="#F44336"/>
         </StackPanel>
 
         <DataGrid ItemsSource="{Binding Books}" SelectedItem="{Binding SelectedBook}" 
-                  AutoGenerateColumns="False" Grid.Row="2" Margin="0,0,0,10"
-                  Background="White" AlternatingRowBackground="#FFF0F0F0" BorderBrush="#FFD2D2D2" BorderThickness="1"
-                  RowHeaderWidth="0" GridLinesVisibility="None">
+                  AutoGenerateColumns="False" Grid.Row="2" Margin="50,0,50,10"
+                  SelectionMode="Single">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="*" />
-                <DataGridTextColumn Header="Author" Binding="{Binding Author}" Width="*" />
-                <DataGridTextColumn Header="Publisher" Binding="{Binding Publisher}" Width="*" />
+                <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="*"/>
+                <DataGridTextColumn Header="Author" Binding="{Binding Author}" Width="*"/>
+                <DataGridTextColumn Header="Publisher" Binding="{Binding Publisher}" Width="*"/>
                 <DataGridTextColumn Header="Pages" Binding="{Binding Pages}" Width="Auto"/>
-                <DataGridTextColumn Header="Genre" Binding="{Binding Genre}" Width="*" />
+                <DataGridTextColumn Header="Genre" Binding="{Binding Genre}" Width="*"/>
                 <DataGridTextColumn Header="Year" Binding="{Binding PublicationYear}" Width="Auto"/>
-                <DataGridTextColumn Header="Price" Binding="{Binding SalePrice}" Width="Auto"/>
+                <DataGridTextColumn Header="Price" Binding="{Binding SalePrice, StringFormat=C}" Width="Auto"/>
                 <DataGridTextColumn Header="Sales Count" Binding="{Binding SalesCount}" Width="Auto"/>
             </DataGrid.Columns>
         </DataGrid>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Right">
-            <Button Content="Purchase" Width="100" Height="25" Margin="5" Click="PurchaseButton_Click"
-                    Background="#FF4CAF50" Style="{StaticResource RoundedButtonStyle}"/>
-            <Button Content="Purchase History" Width="150" Height="25" Margin="5" Click="PurchaseHistoryButton_Click"
-                    Background="#FF2196F3" Style="{StaticResource RoundedButtonStyle}"/>
-            <Button Content="Back" Width="100" Height="25" Margin="5" Click="BackButton_Click"
-                    Background="#FF9E9E9E" Style="{StaticResource RoundedButtonStyle}"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Center" Margin="0,50,0,100">
+            <Button Content="Purchase" Width="150" Height="50" Click="PurchaseButton_Click" 
+                    Background="#4CAF50"/>
+            <Button Content="Purchase History" Width="200" Height="50" Click="PurchaseHistoryButton_Click" 
+                    Background="#2196F3"/>
+            <Button Content="Back" Width="150" Height="50" Click="BackButton_Click" 
+                    Background="#9E9E9E"/>
         </StackPanel>
     </Grid>
 </Window>
