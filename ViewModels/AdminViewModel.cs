@@ -92,10 +92,10 @@ namespace FinalADO.ViewModels
             }
 
             var filtered = allBooks.Where(b =>
-                b.Title.ToLower() == query.ToLower() ||
-                b.Author.ToLower() == query.ToLower() ||
-                b.Genre.ToLower() == query.ToLower() ||
-                b.Publisher.ToLower() == query.ToLower()
+                b.Title.ToLower().Contains(query.ToLower()) ||
+                b.Author.ToLower().Contains(query.ToLower()) ||
+                b.Genre.ToLower().Contains(query.ToLower()) ||
+                b.Publisher.ToLower().Contains(query.ToLower())
             );
 
             Books = new ObservableCollection<Book>(filtered);
