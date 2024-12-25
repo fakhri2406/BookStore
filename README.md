@@ -17,14 +17,16 @@ This application demonstrates a practical implementation of the MVVM (Model-View
 - **Add a Book**: Insert new book details into the database.
 - **Edit a Book**: Update existing book details.
 - **Delete a Book**: Remove a book from the database.
+- **Search Books**: Filter books by title, author, genre, or publisher.
 
 ### 3. Book Purchase (User Window)
 - **Purchase**: Add a book to the user's purchase history and increment its sales count.
 - **Purchase History**: View the purchase history of the user.
+- **Search Books**: Filter available books by title, author, genre, or publisher.
 
 ### 4. Database Management
 - Interacts with a SQL Server database for all CRUD operations.
-- Two main tables:
+- Three main tables:
   - `Users`: Stores user credentials.
   - `Books`: Stores book details.
   - `Purchases`: Stores purchase details of all users.
@@ -33,6 +35,7 @@ This application demonstrates a practical implementation of the MVVM (Model-View
 - Built using WPF.
 - Data grid displays book details, allowing easy management.
 - Back buttons for easy navigation.
+- Search functionality for efficient book management and browsing.
 
 ### 6. Validation
 - Input validation for user registration, book creation, and editing.
@@ -100,24 +103,24 @@ cd BookStore
 
 ### 2. **DataAccess**
 Handles interaction with the database using ADO.NET.
-- **`DataAccess.cs`**: Contains methods for CRUD operations for both users and books.
+- **`DataAccess.cs`**: Contains methods for CRUD operations for users, books, and purchases.
 
 ### 3. **ViewModels**
 Implements the MVVM pattern.
 - **`BaseViewModel.cs`**: Provides property change notification.
 - **`LoginViewModel.cs`**: Handles login logic.
 - **`RegisterViewModel.cs`**: Handles registration logic.
-- **`UserViewModel.cs`**: Manages the book purchase functionality for user.
-- **`AdminViewModel.cs`**: Manages the book management functionality for admin.
+- **`UserViewModel.cs`**: Manages the book purchase and search functionality for users.
+- **`AdminViewModel.cs`**: Manages the book management and search functionality for admins.
 - **`PurchaseHistoryViewModel.cs`**: Handles the logic of purchase history view.
 
 ### 4. **Views**
 User interface components built with XAML.
 - **`LoginWindow.xaml`**: Login screen.
 - **`RegisterWindow.xaml`**: Registration screen.
-- **`UserWindow.xaml`**: Main interface for book purchase.
-- **`AdminWindow.xaml`**: Main interface for book management.
-- **`PurchaseHistoryWindow.xaml`**: Interface for viewing puchase history.
+- **`UserWindow.xaml`**: Main interface for book purchase with search functionality.
+- **`AdminWindow.xaml`**: Main interface for book management with search functionality.
+- **`PurchaseHistoryWindow.xaml`**: Interface for viewing purchase history.
 - **`BookWindow.xaml`**: Interface for adding and editing book details.
 
 ### 5. **Resources**
@@ -133,18 +136,23 @@ User interface components built with XAML.
 2. On the login screen:
    - Enter valid credentials to log in.
    - Click "Go to Register" to create a new account.
-   - To log in as admin, enter 'admin' to both username and password fields.
+   - To log in as admin, enter 'admin' for both username and password fields.
 3. After logging in, the corresponding main window will appear.
 
 ### User Window
 1. **Purchasing a Book**:
+   - Select a book from the list.
    - Click the "Purchase" button.
    - The book will be added to user's history.
 2. **Viewing Purchase History**:
    - Click "Purchase History."
    - View the history.
+3. **Searching Books**:
+   - Enter a search query in the search bar.
+   - Click "Search" to filter books by title, author, genre, or publisher.
+   - Click "Clear" to reset the search and view all books.
 
-### Admin Books
+### Admin Window
 1. **Adding a Book**:
    - Click the "Add" button.
    - Fill in the book details and click "Save."
@@ -156,6 +164,10 @@ User interface components built with XAML.
    - Select a book from the list.
    - Click "Delete."
    - Confirm the action.
+4. **Searching Books**:
+   - Enter a search query in the search bar.
+   - Click "Search" to filter books by title, author, genre, or publisher.
+   - Click "Clear" to reset the search and view all books.
 
 ---
 
@@ -165,39 +177,38 @@ User interface components built with XAML.
 | Column    | Data Type    | Constraints       |
 |-----------|--------------|-------------------|
 | UserId    | INT          | Primary Key       |
-| Username  | NVARCHAR(50) | Unique, Not Null |
+| Username  | NVARCHAR(50) | Unique, Not Null  |
 | Password  | NVARCHAR(50) | Not Null          |
 
 ### Books Table
 | Column          | Data Type       | Constraints                        |
 |-----------------|-----------------|------------------------------------|
 | BookId          | INT             | Primary Key                        |
-| Title           | NVARCHAR(100)  | Not Null                           |
-| Author          | NVARCHAR(100)  | Not Null                           |
-| Publisher       | NVARCHAR(100)  | Not Null                           |
+| Title           | NVARCHAR(100)   | Not Null                           |
+| Author          | NVARCHAR(100)   | Not Null                           |
+| Publisher       | NVARCHAR(100)   | Not Null                           |
 | Pages           | INT             | Not Null                           |
-| Genre           | NVARCHAR(50)   | Not Null                           |
+| Genre           | NVARCHAR(50)    | Not Null                           |
 | PublicationYear | INT             | Not Null                           |
-| Cost            | DECIMAL(10, 2) | Not Null                           |
-| SalePrice       | DECIMAL(10, 2) | Not Null                           |
+| Cost            | DECIMAL(10, 2)  | Not Null                           |
+| SalePrice       | DECIMAL(10, 2)  | Not Null                           |
 | IsContinuation  | BIT             | Not Null                           |
 | ContinuationOf  | INT             | Nullable, Foreign Key (BookId)     |
 | SalesCount      | INT             | Not Null, Default 0                |
 
 ### Purchases Table
-| Column          | Data Type       | Constraints                        |
-|-----------------|-----------------|------------------------------------|
-| PurchaseId      | INT             | Primary Key                        |
-| UserId          | INT             | Not Null, Foreign Key (UserId)     |
-| BookId          | INT             | Not Null, Foreign Key (BookId)     |
-| PurchaseDate    | DATETIME        | Not Null, Default Getdate()        |
+| Column          | Data Type    | Constraints                        |
+|-----------------|--------------|------------------------------------|
+| PurchaseId      | INT          | Primary Key                        |
+| UserId          | INT          | Not Null, Foreign Key (UserId)     |
+| BookId          | INT          | Not Null, Foreign Key (BookId)     |
+| PurchaseDate    | DATETIME     | Not Null, Default Getdate()        |
 
 ---
 
 ## Future Improvements
 1. Implement password hashing for user credentials.
-2. Add advanced search and filtering options for books.
-3. Enhance the UI with animations and responsive design.
+2. Enhance the UI with animations and responsive design.
 
 ---
 
