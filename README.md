@@ -62,9 +62,10 @@ This application demonstrates a practical implementation of the MVVM (Model-View
 ## Installation and Setup
 
 ### Prerequisites
-1. .NET Framework (version compatible with WPF).
+1. .NET 8.0 (or higher).
 2. Microsoft SQL Server (local or remote instance).
-3. Visual Studio (recommended for running and debugging the project).
+3. SQL Server Management Studio (SSMS).
+4. Visual Studio (recommended for running and debugging the project).
 
 ### Steps
 
@@ -75,13 +76,17 @@ cd BookStore
 ```
 
 #### 2. Configure the Database
-- Run the `BookStore.sql` script in SQL Server Management Studio (SSMS) to create the necessary database and tables.
+- Open SSMS and create a server (or connect to one).
+- Create a database with the name 'BookStore' using 'SQL Authentication' (set the username and password to 'admin').
+- Run the any line of code `BookStore.sql` script and connect to the previously created server.
+- Use the same authentication method and select 'True' in the 'Trust Server Certificate' field.
+- Run the `BookStore.sql` script to create the necessary tables and perform other queries.
 - Update the connection string in `App.config` to match your database credentials:
 
 ```xml
 <connectionStrings>
     <add name="BookStoreDB"
-         connectionString="Data Source=<YourServer>;Initial Catalog=BookStore;User ID=<YourUsername>;Password=<YourPassword>;Encrypt=True;TrustServerCertificate=True;Integrated Security=False"
+         connectionString="Data Source=<YourServer>;Initial Catalog=BookStore;User ID=admin;Password=admin;Encrypt=True;TrustServerCertificate=True;Integrated Security=False"
          providerName="System.Data.SqlClient" />
 </connectionStrings>
 ```
@@ -124,7 +129,7 @@ User interface components built with XAML.
 - **`BookWindow.xaml`**: Interface for adding and editing book details.
 
 ### 5. **Resources**
-- **`App.xaml`**: Entry point for the WPF application.
+- **`App.xaml`**: Entry point for the WPF application with global styles implemented.
 - **`App.config`**: Configuration file for database connection.
 
 ---
