@@ -58,7 +58,7 @@ namespace FinalADO.Views
         {
             if (viewModel.SelectedBook != null)
             {
-                if (MessageBox.Show("Are you sure you want to delete this book?", "Confirm", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                if (MessageBox.Show($"Are you sure you want to delete '{viewModel.SelectedBook.Title}'?", "Confirm", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                 {
                     viewModel.DeleteBook();
                 }

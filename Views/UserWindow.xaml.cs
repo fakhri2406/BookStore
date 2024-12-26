@@ -22,7 +22,14 @@ namespace FinalADO.Views
 
         private void PurchaseButton_Click(object sender, RoutedEventArgs e)
         {
-            viewModel.PurchaseBook();
+            if (viewModel.SelectedBook != null)
+            {
+                viewModel.PurchaseBook();
+            }
+            else
+            {
+                MessageBox.Show("Select a book to purchase", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void PurchaseHistoryButton_Click(object sender, RoutedEventArgs e)

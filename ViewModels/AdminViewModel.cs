@@ -59,28 +59,8 @@ namespace FinalADO.ViewModels
 
         public void DeleteBook()
         {
-            if (SelectedBook != null)
-            {
-                dataAccess.DeleteBook(SelectedBook.BookId);
-                LoadBooks();
-            }
-            else
-            {
-                MessageBox.Show("Select a book to delete", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-        }
-
-        public void WriteOffBook()
-        {
-            if (SelectedBook != null)
-            {
-                dataAccess.DeleteBook(SelectedBook.BookId);
-                LoadBooks();
-            }
-            else
-            {
-                MessageBox.Show("Select a book to write off", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
+            dataAccess.DeleteBook(SelectedBook.BookId);
+            LoadBooks();
         }
 
         public void SearchBooks(string query)

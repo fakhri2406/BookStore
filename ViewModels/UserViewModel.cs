@@ -49,16 +49,9 @@ namespace FinalADO.ViewModels
 
         public void PurchaseBook()
         {
-            if (SelectedBook != null)
-            {
-                dataAccess.SellBook(SelectedBook.BookId);
-                dataAccess.AddPurchase(userId, SelectedBook.BookId);
-                LoadBooks();
-            }
-            else
-            {
-                MessageBox.Show("Select a book to purchase", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
+            dataAccess.SellBook(SelectedBook.BookId);
+            dataAccess.AddPurchase(userId, SelectedBook.BookId);
+            LoadBooks();
         }
 
         public void SearchBooks(string query)
