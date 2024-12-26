@@ -68,6 +68,12 @@ namespace FinalADO.Views
                 return;
             }
 
+            if (Book.PublicationYear > DateTime.Now.Year)
+            {
+                MessageBox.Show($"Publication year should bot be greater than {DateTime.Now.Year}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             this.DialogResult = true;
         }
 

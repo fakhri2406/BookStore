@@ -16,57 +16,59 @@
         <TextBlock Text="Book Details" FontSize="28" FontWeight="Bold" 
                HorizontalAlignment="Center" Margin="0,50,0,30" Grid.Row="0"/>
 
-        <StackPanel Grid.Row="1" HorizontalAlignment="Center" Width="450">
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
-                <Label Content="Title:" Width="150" VerticalAlignment="Center"/>
-                <TextBox Text="{Binding Book.Title, UpdateSourceTrigger=PropertyChanged}" Width="250"/>
-            </StackPanel>
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel Grid.Row="1" HorizontalAlignment="Center" Width="450">
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+                    <Label Content="Title:" Width="150" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding Book.Title, UpdateSourceTrigger=PropertyChanged}" Width="250"/>
+                </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
-                <Label Content="Author:" Width="150" VerticalAlignment="Center"/>
-                <TextBox Text="{Binding Book.Author, UpdateSourceTrigger=PropertyChanged}" Width="250"/>
-            </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+                    <Label Content="Author:" Width="150" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding Book.Author, UpdateSourceTrigger=PropertyChanged}" Width="250"/>
+                </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
-                <Label Content="Publisher:" Width="150" VerticalAlignment="Center"/>
-                <TextBox Text="{Binding Book.Publisher, UpdateSourceTrigger=PropertyChanged}" Width="250"/>
-            </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+                    <Label Content="Publisher:" Width="150" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding Book.Publisher, UpdateSourceTrigger=PropertyChanged}" Width="250"/>
+                </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
-                <Label Content="Pages:" Width="150" VerticalAlignment="Center"/>
-                <TextBox Text="{Binding Book.Pages, UpdateSourceTrigger=PropertyChanged}" Width="250"/>
-            </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+                    <Label Content="Pages:" Width="150" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding Book.Pages, UpdateSourceTrigger=PropertyChanged}" Width="250"/>
+                </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
-                <Label Content="Genre:" Width="150" VerticalAlignment="Center"/>
-                <TextBox Text="{Binding Book.Genre, UpdateSourceTrigger=PropertyChanged}" Width="250"/>
-            </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+                    <Label Content="Genre:" Width="150" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding Book.Genre, UpdateSourceTrigger=PropertyChanged}" Width="250"/>
+                </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
-                <Label Content="Publication Year:" Width="150" VerticalAlignment="Center"/>
-                <TextBox Text="{Binding Book.PublicationYear, UpdateSourceTrigger=PropertyChanged}" Width="250"/>
-            </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+                    <Label Content="Publication Year:" Width="150" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding Book.PublicationYear, UpdateSourceTrigger=PropertyChanged}" Width="250"/>
+                </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
-                <Label Content="Cost:" Width="150" VerticalAlignment="Center"/>
-                <TextBox Text="{Binding Book.Cost, UpdateSourceTrigger=PropertyChanged}" Width="250"/>
-            </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+                    <Label Content="Cost:" Width="150" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding Book.Cost, UpdateSourceTrigger=PropertyChanged}" Width="250"/>
+                </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
-                <Label Content="Sale Price:" Width="150" VerticalAlignment="Center"/>
-                <TextBox Text="{Binding Book.SalePrice, UpdateSourceTrigger=PropertyChanged}" Width="250"/>
-            </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+                    <Label Content="Sale Price:" Width="150" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding Book.SalePrice, UpdateSourceTrigger=PropertyChanged}" Width="250"/>
+                </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
-                <Label Content="Is Continuation?" Width="150" VerticalAlignment="Center"/>
-                <CheckBox IsChecked="{Binding Book.IsContinuation, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
-            </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+                    <Label Content="Is Continuation?" Width="150" VerticalAlignment="Center"/>
+                    <CheckBox IsChecked="{Binding Book.IsContinuation, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
+                </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
-                <Label Content="Continuation Of (ID):" Width="150" VerticalAlignment="Center"/>
-                <TextBox Text="{Binding Book.ContinuationOf, UpdateSourceTrigger=PropertyChanged}" Width="250"/>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+                    <Label Content="Continuation Of (ID):" Width="150" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding Book.ContinuationOf, UpdateSourceTrigger=PropertyChanged}" Width="250"/>
+                </StackPanel>
             </StackPanel>
-        </StackPanel>
+        </ScrollViewer>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,30,0,100">
             <Button Content="Save" Width="150" Height="50" Click="SaveButton_Click" 
