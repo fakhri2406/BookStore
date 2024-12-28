@@ -14,5 +14,7 @@ namespace FinalADO.Models
         public DateTime PurchaseDate { get; set; }
         public string BookTitle { get; set; }
         public decimal SalePrice { get; set; }
+        public decimal Discount { get; set; }
+        public decimal FinalPrice => SalePrice * (1 - Discount / 100);
     }
 }

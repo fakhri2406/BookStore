@@ -43,20 +43,27 @@ namespace FinalADO.Views
                 Cost = book.Cost,
                 SalePrice = book.SalePrice,
                 IsContinuation = book.IsContinuation,
-                ContinuationOf = book.ContinuationOf
+                ContinuationOf = book.ContinuationOf,
+                Discount = book.Discount
             };
             this.DataContext = this;
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!Book.Author.All(char.IsLetter))
+            if (string.IsNullOrWhiteSpace(Book.Title))
+            {
+                MessageBox.Show("Title is required", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(Book.Author) || !Book.Author.All(c => char.IsLetter(c) || char.IsWhiteSpace(c)))
             {
                 MessageBox.Show("Author name should consist of letters only", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
-            if (!Book.Genre.All(char.IsLetter))
+            if (string.IsNullOrWhiteSpace(Book.Genre) || !Book.Genre.All(c => char.IsLetter(c) || char.IsWhiteSpace(c)))
             {
                 MessageBox.Show("Genre should consist of letters only", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -70,7 +77,13 @@ namespace FinalADO.Views
 
             if (Book.PublicationYear > DateTime.Now.Year)
             {
-                MessageBox.Show($"Publication year should bot be greater than {DateTime.Now.Year}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Publication year should not be greater than {DateTime.Now.Year}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (Book.Discount < 0 || Book.Discount > 100)
+            {
+                MessageBox.Show("Discount percentage must be between 0 and 100", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 

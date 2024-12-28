@@ -49,9 +49,23 @@ namespace FinalADO.ViewModels
 
         public void PurchaseBook()
         {
-            dataAccess.SellBook(SelectedBook.BookId);
-            dataAccess.AddPurchase(userId, SelectedBook.BookId);
-            LoadBooks();
+            if (SelectedBook != null)
+            {
+                decimal finalPrice = SelectedBook.SalePrice * (1 - SelectedBook.Discount / 100);
+
+                var result = MessageBox.Show($"Confirm purchase of '{SelectedBook.Title}' for {finalPrice:C}?", "Confirm", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    dataAccess.SellBook(SelectedBook.BookId);
+                    dataAccess.AddPurchase(userId, SelectedBook.BookId);
+                    LoadBooks();
+                    MessageBox.Show("Purchase successful!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Select a book to purchase", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         public void SearchBooks(string query)

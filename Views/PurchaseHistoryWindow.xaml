@@ -22,6 +22,8 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Book Title" Binding="{Binding BookTitle}" Width="*"/>
                 <DataGridTextColumn Header="Price" Binding="{Binding SalePrice, StringFormat=C}" Width="Auto"/>
+                <DataGridTextColumn Header="Discount (%)" Binding="{Binding Discount}" Width="Auto"/>
+                <DataGridTextColumn Header="Final Price" Binding="{Binding FinalPrice, StringFormat=C}" Width="Auto"/>
                 <DataGridTextColumn Header="Purchase Date" Binding="{Binding PurchaseDate, StringFormat=MM/dd/yyyy HH:mm}" Width="Auto"/>
             </DataGrid.Columns>
         </DataGrid>

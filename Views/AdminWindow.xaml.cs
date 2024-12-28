@@ -69,6 +69,23 @@ namespace FinalADO.Views
             }
         }
 
+        private void SetDiscountButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (viewModel.SelectedBook != null)
+            {
+                SetDiscountWindow discountWindow = new SetDiscountWindow(viewModel.SelectedBook);
+                if (discountWindow.ShowDialog() == true)
+                {
+                    decimal discount = discountWindow.Discount;
+                    viewModel.SetDiscount(discount);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Select a book to set discount", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             LoginWindow loginWindow = new LoginWindow();

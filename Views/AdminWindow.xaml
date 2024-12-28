@@ -38,6 +38,7 @@
                 <DataGridTextColumn Header="Year" Binding="{Binding PublicationYear}" Width="Auto"/>
                 <DataGridTextColumn Header="Cost" Binding="{Binding Cost, StringFormat=C}" Width="Auto"/>
                 <DataGridTextColumn Header="Price" Binding="{Binding SalePrice, StringFormat=C}" Width="Auto"/>
+                <DataGridTextColumn Header="Discount (%)" Binding="{Binding Discount}" Width="Auto"/>
                 <DataGridCheckBoxColumn Header="Continuation" Binding="{Binding IsContinuation}" Width="Auto"/>
                 <DataGridTextColumn Header="Sales Count" Binding="{Binding SalesCount}" Width="Auto"/>
             </DataGrid.Columns>
@@ -47,6 +48,8 @@
             <Button Content="Add" Width="150" Height="50" Click="AddButton_Click" 
                     Background="#4CAF50"/>
             <Button Content="Edit" Width="150" Height="50" Click="EditButton_Click" 
+                    Background="#2196F3"/>
+            <Button Content="Set Discount" Width="150" Height="50" Click="SetDiscountButton_Click" 
                     Background="#2196F3"/>
             <Button Content="Delete" Width="150" Height="50" Click="DeleteButton_Click" 
                     Background="#F44336"/>

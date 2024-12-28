@@ -72,7 +72,8 @@ namespace FinalADO.DataAccess
                             SalePrice = (decimal)reader["SalePrice"],
                             IsContinuation = (bool)reader["IsContinuation"],
                             ContinuationOf = reader["ContinuationOf"] as int?,
-                            SalesCount = (int)reader["SalesCount"]
+                            SalesCount = (int)reader["SalesCount"],
+                            Discount = (decimal)reader["Discount"]
                         });
                     }
                 }
@@ -86,9 +87,9 @@ namespace FinalADO.DataAccess
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 string query = @"INSERT INTO Books 
-                                 (Title, Author, Publisher, Pages, Genre, PublicationYear, Cost, SalePrice, IsContinuation, ContinuationOf, SalesCount) 
+                                 (Title, Author, Publisher, Pages, Genre, PublicationYear, Cost, SalePrice, IsContinuation, ContinuationOf, SalesCount, Discount) 
                                  VALUES 
-                                 (@Title, @Author, @Publisher, @Pages, @Genre, @PublicationYear, @Cost, @SalePrice, @IsContinuation, @ContinuationOf, @SalesCount)";
+                                 (@Title, @Author, @Publisher, @Pages, @Genre, @PublicationYear, @Cost, @SalePrice, @IsContinuation, @ContinuationOf, @SalesCount, @Discount)";
                 SqlCommand cmd = new SqlCommand(query, conn);
 
                 cmd.Parameters.AddWithValue("@Title", book.Title);
@@ -111,6 +112,7 @@ namespace FinalADO.DataAccess
                 }
 
                 cmd.Parameters.AddWithValue("@SalesCount", 0);
+                cmd.Parameters.AddWithValue("@Discount", book.Discount);
 
                 conn.Open();
                 cmd.ExecuteNonQuery();
@@ -145,7 +147,8 @@ namespace FinalADO.DataAccess
                                  Cost = @Cost,
                                  SalePrice = @SalePrice,
                                  IsContinuation = @IsContinuation,
-                                 ContinuationOf = @ContinuationOf
+                                 ContinuationOf = @ContinuationOf,
+                                 Discount = @Discount
                                  WHERE BookId = @BookId";
                 SqlCommand cmd = new SqlCommand(query, conn);
 
@@ -159,6 +162,7 @@ namespace FinalADO.DataAccess
                 cmd.Parameters.AddWithValue("@SalePrice", book.SalePrice);
                 cmd.Parameters.AddWithValue("@IsContinuation", book.IsContinuation);
                 cmd.Parameters.AddWithValue("@BookId", book.BookId);
+                cmd.Parameters.AddWithValue("@Discount", book.Discount);
 
                 if (book.ContinuationOf.HasValue)
                 {
@@ -225,7 +229,7 @@ namespace FinalADO.DataAccess
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 string query = @"SELECT p.PurchaseId, p.UserId, p.BookId, p.PurchaseDate, 
-                                b.Title AS BookTitle, b.SalePrice
+                                b.Title AS BookTitle, b.SalePrice, b.Discount
                                 FROM Purchases p
                                 INNER JOIN Books b ON p.BookId = b.BookId
                                 WHERE p.UserId = @UserId
@@ -246,7 +250,8 @@ namespace FinalADO.DataAccess
                             BookId = (int)reader["BookId"],
                             PurchaseDate = (DateTime)reader["PurchaseDate"],
                             BookTitle = reader["BookTitle"].ToString(),
-                            SalePrice = (decimal)reader["SalePrice"]
+                            SalePrice = (decimal)reader["SalePrice"],
+                            Discount = (decimal)reader["Discount"]
                         });
                     }
                 }

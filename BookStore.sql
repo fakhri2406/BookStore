@@ -17,6 +17,7 @@ CREATE TABLE Books (
     IsContinuation BIT NOT NULL,
     ContinuationOf INT NULL,
     SalesCount INT NOT NULL DEFAULT 0,
+    Discount DECIMAL(5,2) NOT NULL DEFAULT 0,
     FOREIGN KEY (ContinuationOf) REFERENCES Books(BookId)
 );
 

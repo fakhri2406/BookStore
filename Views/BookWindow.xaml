@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:FinalADO.Views"
         mc:Ignorable="d"
         Title="Book" WindowStartupLocation="CenterScreen">
-    <Grid>
+    <Grid Margin="30">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -14,7 +14,7 @@
         </Grid.RowDefinitions>
 
         <TextBlock Text="Book Details" FontSize="28" FontWeight="Bold" 
-               HorizontalAlignment="Center" Margin="0,50,0,30" Grid.Row="0"/>
+                   HorizontalAlignment="Center" Margin="0,50,0,30" Grid.Row="0"/>
 
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
             <StackPanel Grid.Row="1" HorizontalAlignment="Center" Width="450">
@@ -56,6 +56,11 @@
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
                     <Label Content="Sale Price:" Width="150" VerticalAlignment="Center"/>
                     <TextBox Text="{Binding Book.SalePrice, UpdateSourceTrigger=PropertyChanged}" Width="250"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+                    <Label Content="Discount (%) :" Width="150" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding Book.Discount, UpdateSourceTrigger=PropertyChanged}" Width="250"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,15">

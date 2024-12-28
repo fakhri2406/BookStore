@@ -63,6 +63,26 @@ namespace FinalADO.ViewModels
             LoadBooks();
         }
 
+        public void SetDiscount(decimal discount)
+        {
+            if (SelectedBook != null)
+            {
+                if (discount < 0 || discount > 100)
+                {
+                    MessageBox.Show("Discount percentage must be between 0 and 100", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                SelectedBook.Discount = discount;
+                dataAccess.UpdateBook(SelectedBook);
+                LoadBooks();
+            }
+            else
+            {
+                MessageBox.Show("Select a book to set discount", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
         public void SearchBooks(string query)
         {
             if (string.IsNullOrEmpty(query))

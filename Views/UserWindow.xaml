@@ -37,6 +37,8 @@
                 <DataGridTextColumn Header="Genre" Binding="{Binding Genre}" Width="*"/>
                 <DataGridTextColumn Header="Year" Binding="{Binding PublicationYear}" Width="Auto"/>
                 <DataGridTextColumn Header="Price" Binding="{Binding SalePrice, StringFormat=C}" Width="Auto"/>
+                <DataGridTextColumn Header="Discount (%)" Binding="{Binding Discount}" Width="Auto"/>
+                <DataGridTextColumn Header="Final Price" Binding="{Binding FinalPrice, StringFormat=C}" Width="Auto"/>
                 <DataGridTextColumn Header="Sales Count" Binding="{Binding SalesCount}" Width="Auto"/>
             </DataGrid.Columns>
         </DataGrid>
