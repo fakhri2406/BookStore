@@ -17,6 +17,7 @@ This application demonstrates a practical implementation of the MVVM (Model-View
 - **Add a Book**: Insert new book details into the database.
 - **Edit a Book**: Update existing book details.
 - **Delete a Book**: Remove a book from the database.
+- **Set Discount**: Apply percentage-based discounts to books.
 - **Search Books**: Filter books by title, author, genre, or publisher.
 
 ### 3. Book Purchase (User Window)
@@ -24,23 +25,27 @@ This application demonstrates a practical implementation of the MVVM (Model-View
 - **Purchase History**: View the purchase history of the user.
 - **Search Books**: Filter available books by title, author, genre, or publisher.
 
-### 4. Database Management
+### 4. Discount Management
+- **Admin Control**: Admins can set and manage discounts on books, which are reflected in purchase prices.
+
+### 5. Database Management
 - Interacts with a SQL Server database for all CRUD operations.
 - Three main tables:
   - `Users`: Stores user credentials.
   - `Books`: Stores book details.
   - `Purchases`: Stores purchase details of all users.
 
-### 5. Intuitive UI
+### 6. Intuitive UI
 - Built using WPF.
 - Data grid displays book details, allowing easy management.
 - Back buttons for easy navigation.
 - Search functionality for efficient book management and browsing.
 
-### 6. Validation
+### 7. Validation
 - Input validation for user registration, book creation, and editing.
 - Password requirements enforced during registration.
 - Genre and author names must consist of letters only.
+- Discount percentages must be between 0 and 100.
 
 ---
 
@@ -80,7 +85,7 @@ cd BookStore
 - Create a database with the name 'BookStore' using 'SQL Authentication' (set the username and password to 'admin').
 - Run the any line of code `BookStore.sql` script and connect to the previously created server.
 - Use the same authentication method and select 'True' in the 'Trust Server Certificate' field.
-- Run the `BookStore.sql` script to create the necessary tables and perform other queries.
+- Run the BookStore.sql script to create the necessary tables and perform other queries.
 - Update the connection string in `App.config` to match your database credentials:
 
 ```xml
@@ -127,6 +132,7 @@ User interface components built with XAML.
 - **`AdminWindow.xaml`**: Main interface for book management with search functionality.
 - **`PurchaseHistoryWindow.xaml`**: Interface for viewing purchase history.
 - **`BookWindow.xaml`**: Interface for adding and editing book details.
+- **`SetDiscountWindow.xaml`**: Interface for setting discounts on books.
 
 ### 5. **Resources**
 - **`App.xaml`**: Entry point for the WPF application with global styles implemented.
@@ -140,7 +146,7 @@ User interface components built with XAML.
 1. Launch the application.
 2. On the login screen:
    - Enter valid credentials to log in.
-   - Click "Go to Register" to create a new account.
+   - Click "Register" to create a new account.
    - To log in as admin, enter 'admin' for both username and password fields.
 3. After logging in, the corresponding main window will appear.
 
@@ -148,7 +154,8 @@ User interface components built with XAML.
 1. **Purchasing a Book**:
    - Select a book from the list.
    - Click the "Purchase" button.
-   - The book will be added to user's history.
+   - Confirm the purchase with the final price reflecting any applied discounts.
+   - The book will be added to the user's history.
 2. **Viewing Purchase History**:
    - Click "Purchase History."
    - View the history.
@@ -169,7 +176,12 @@ User interface components built with XAML.
    - Select a book from the list.
    - Click "Delete."
    - Confirm the action.
-4. **Searching Books**:
+4. **Setting a Discount**:
+   - Select a book from the list.
+   - Click the "Set Discount" button.
+   - Enter the discount percentage (0-100) and save.
+   - The discount will be applied to the book, affecting purchase prices.
+5. **Searching Books**:
    - Enter a search query in the search bar.
    - Click "Search" to filter books by title, author, genre, or publisher.
    - Click "Clear" to reset the search and view all books.
@@ -186,20 +198,21 @@ User interface components built with XAML.
 | Password  | NVARCHAR(50) | Not Null          |
 
 ### Books Table
-| Column          | Data Type       | Constraints                        |
-|-----------------|-----------------|------------------------------------|
-| BookId          | INT             | Primary Key                        |
-| Title           | NVARCHAR(100)   | Not Null                           |
-| Author          | NVARCHAR(100)   | Not Null                           |
-| Publisher       | NVARCHAR(100)   | Not Null                           |
-| Pages           | INT             | Not Null                           |
-| Genre           | NVARCHAR(50)    | Not Null                           |
-| PublicationYear | INT             | Not Null                           |
-| Cost            | DECIMAL(10, 2)  | Not Null                           |
-| SalePrice       | DECIMAL(10, 2)  | Not Null                           |
-| IsContinuation  | BIT             | Not Null                           |
-| ContinuationOf  | INT             | Nullable, Foreign Key (BookId)     |
-| SalesCount      | INT             | Not Null, Default 0                |
+| Column             | Data Type       | Constraints                        |
+|--------------------|-----------------|------------------------------------|
+| BookId             | INT             | Primary Key                        |
+| Title              | NVARCHAR(100)   | Not Null                           |
+| Author             | NVARCHAR(100)   | Not Null                           |
+| Publisher          | NVARCHAR(100)   | Not Null                           |
+| Pages              | INT             | Not Null                           |
+| Genre              | NVARCHAR(50)    | Not Null                           |
+| PublicationYear    | INT             | Not Null                           |
+| Cost               | DECIMAL(10, 2)  | Not Null                           |
+| SalePrice          | DECIMAL(10, 2)  | Not Null                           |
+| Discount           | DECIMAL(5,2)    | Not Null, Default 0                |
+| IsContinuation     | BIT             | Not Null                           |
+| ContinuationOf     | INT             | Nullable, Foreign Key (BookId)     |
+| SalesCount         | INT             | Not Null, Default 0                |
 
 ### Purchases Table
 | Column          | Data Type    | Constraints                        |
