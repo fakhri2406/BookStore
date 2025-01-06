@@ -1,6 +1,5 @@
 ﻿using FinalADO.DataAccess;
 using FinalADO.Models;
-using System;
 using System.Windows;
 
 namespace FinalADO.ViewModels
